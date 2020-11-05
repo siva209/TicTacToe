@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class TicTacToe {
 	static char[] board = new char[10];
 	static char player = ' ';
-	char computer = ' ';
+	static char computer = ' ';
 
 	public static void main(String[] args) {
-
-		char computer = ' ';
+		char[]board=createboard();
 		System.out.println("Welcome to TicTacToe");
 
-		player = selectXorO();
+		player = inputOption();
+		showBoard();
 		computer = player == 'X' ? 'O' : 'X';
 		System.out.println(player + " is player " + computer + " is computer");
 
@@ -29,7 +29,7 @@ public class TicTacToe {
 	}
 
 	/* Uc2  choosing letters for user and computer */
-	private static char selectXorO() {
+	private static char inputOption() {
 		char player = 'X';
 		Scanner scan = new Scanner(System.in);
 		while (true) {
@@ -44,4 +44,11 @@ public class TicTacToe {
 		}
 	}
 
+	/* Uc3 Display the board */
+private static void showBoard() {
+	for (int i = 1; i < board.length; i = i + 3) {
+		System.out.println("|" + board[i] + " |" + board[i + 1] + " |" + board[i + 2] + " |");
+		System.out.println("-----------");
+	}
+}
 }
